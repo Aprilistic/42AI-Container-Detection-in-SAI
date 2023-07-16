@@ -30,7 +30,7 @@ def txt2json(dir_txt, dir_json):
             if len(line_split) == 10:
                 obj = dict()
                 coord = np.array(line_split[:8], dtype=np.float32).reshape([4, 2])
-                bbox = cv.boxPoints(cv.minAreaRect(coord)).astype(np.int).tolist()
+                bbox = cv.boxPoints(cv.minAreaRect(coord)).astype(int).tolist()
                 obj['name'] = line_split[8].lower()
                 obj['bbox'] = bbox
                 objs.append(obj)
