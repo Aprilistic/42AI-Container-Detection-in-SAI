@@ -32,7 +32,7 @@ mv pytorch-rotation-decoupled-detector/images/train/images2/images/* pytorch-rot
 mv pytorch-rotation-decoupled-detector/images/train/images3/images/* pytorch-rotation-decoupled-detector/images/train/
 
 unzip pytorch-rotation-decoupled-detector/images/val/part1.zip -d pytorch-rotation-decoupled-detector/images/val/
-mv pytorch-rotation-decoupled-detector/images/val/images/* pytorch-rotation-decoupled-detector/images/
+mv pytorch-rotation-decoupled-detector/images/val/images/* pytorch-rotation-decoupled-detector/images/val
 
 unzip pytorch-rotation-decoupled-detector/labelTxt/train/labelv1_0.zip -d pytorch-rotation-decoupled-detector/labelTxt/train
 unzip pytorch-rotation-decoupled-detector/labelTxt/val/labelv1_0.zip -d pytorch-rotation-decoupled-detector/labelTxt/val
@@ -40,3 +40,4 @@ unzip pytorch-rotation-decoupled-detector/labelTxt/val/labelv1_0.zip -d pytorch-
 rm -rf pytorch-rotation-decoupled-detector/images/train/images1 pytorch-rotation-decoupled-detector/images/train/images2 pytorch-rotation-decoupled-detector/images/train/images3
 rm -rf pytorch-rotation-decoupled-detector/images/val/images/
 rm -rf pytorch-rotation-decoupled-detector/labelTxt/train/labelv1_0.zip pytorch-rotation-decoupled-detector/labelTxt/val/labelv1_0.zip
+rm -rf pytorch-rotation-decoupled-detector/labelTxt/train/*.zip
