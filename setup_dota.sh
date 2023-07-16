@@ -13,4 +13,5 @@ git clone https://github.com/circulosmeos/gdown.pl.git
 
 pip install -r pytorch-rotation-decoupled-detector/requirement.txt
 
-python3.8 pytorch-rotation-decoupled-detector/utils/box/ext/rbbox_overlap_gpu/setup.py build_ext --inplace
+cd pytorch-rotation-decoupled-detector/utils/box/ext/rbbox_overlap_gpu
+python setup.py build_ext --inplace
