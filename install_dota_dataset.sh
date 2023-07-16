@@ -7,9 +7,13 @@ mkdir -p pytorch-rotation-decoupled-detector/images/test
 mkdir -p pytorch-rotation-decoupled-detector/labelTxt/train
 mkdir -p pytorch-rotation-decoupled-detector/labelTxt/val
 
-gdown.pl/gdown.pl https://drive.google.com/file/d/1BlaGYNNEKGmT6OjZjsJ8HoUYrTTmFcO2/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part1.zip
-gdown.pl/gdown.pl https://drive.google.com/file/d/1JBWCHdyZOd9ULX0ng5C9haAt3FMPXa3v/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part2.zip
-gdown.pl/gdown.pl https://drive.google.com/file/d/1pEmwJtugIWhiwgBqOtplNUtTG2T454zn/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part3.zip
+# gdown.pl/gdown.pl https://drive.google.com/file/d/1BlaGYNNEKGmT6OjZjsJ8HoUYrTTmFcO2/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part1.zip
+# gdown.pl/gdown.pl https://drive.google.com/file/d/1JBWCHdyZOd9ULX0ng5C9haAt3FMPXa3v/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part2.zip
+# gdown.pl/gdown.pl https://drive.google.com/file/d/1pEmwJtugIWhiwgBqOtplNUtTG2T454zn/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part3.zip
+
+gdown.pl/gdown.pl https://drive.google.com/file/d/1o1UjecsBjgzYlRlq-vsjdSs4rFv367fT/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part1.zip
+gdown.pl/gdown.pl https://drive.google.com/file/d/1dmtqTUpNbPVTHy03EOhP59aoruUAZIdS/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part2.zip
+gdown.pl/gdown.pl https://drive.google.com/file/d/1njPcq6aw5eCZC5rrMg_JxX9MabmoZqPN/view?usp=drive_link pytorch-rotation-decoupled-detector/images/train/part3.zip
 gdown.pl/gdown.pl https://drive.google.com/file/d/1I-faCP-DOxf6mxcjUTc8mYVPqUgSQxx6/view?usp=drive_link pytorch-rotation-decoupled-detector/labelTxt/train/labelv1_0.zip
 
 gdown.pl/gdown.pl https://drive.google.com/file/d/1uCCCFhFQOJLfjBpcL5MC0DHJ9lgOaXWP/view?usp=drive_link pytorch-rotation-decoupled-detector/images/val/part1.zip
