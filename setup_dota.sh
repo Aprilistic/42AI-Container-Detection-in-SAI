@@ -1,9 +1,10 @@
 #! /bin/bash
 
-apt-get update
-apt-get install python3-pip
-apt-get install unzip
-apt-get install vim
+sudo apt-get update
+sudo apt-get install python3-pip
+sudo apt-get install unzip
+sudo apt-get install vim
+sudo apt-get install libgl1-mesa-glx
 
 git clone https://github.com/circulosmeos/gdown.pl.git
 
