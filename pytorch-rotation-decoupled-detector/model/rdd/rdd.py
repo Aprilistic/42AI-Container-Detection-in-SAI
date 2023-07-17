@@ -75,7 +75,7 @@ class RDD(xnn.Module):
         features = features[-(self.num_levels - self.extra):]
         if self.extra > 0:
             for layer in self.extra_layers:
-                features.append(layer(features[-1]))
+                features.append(layer(features[-1])) # 이거 필요없을 거 같은데. 오히려 feature map의 width/height를 더 줄이는 거잖아.... 우리 컨테이너는 꽤 작은데...? anchor box stride가 어떻게 바뀌어야할지 고민해보자.
         features = self.fpn(features)
 
         pred_cls, pred_loc = self.predict(features)
