@@ -9,3 +9,6 @@ mv container/images pytorch-rotation-decoupled-detector/
 mv container/labelTxt pytorch-rotation-decoupled-detector/
 
 rm -rf container
+cd pytorch-rotation-decoupled-detector/images
+
+mv val/* test/
