@@ -11,8 +11,3 @@ mv rdd_1x/labelTxt pytorch-rotation-decoupled-detector/
 # rm container.zip
 # rm -rf rdd_1x
 cd pytorch-rotation-decoupled-detector/images
-mv val/* test/
-
-cd ~
-mv 42AI/pytorch-rotation-decoupled-detector ./
-# rm -rf 42AI
