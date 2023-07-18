@@ -43,8 +43,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Uploads/downloads a file to/from Dropbox.')
     # Add arguments
     parser.add_argument('--download', type=bool, help='1 if you need to download. 0 otherwise.')
-    parser.add_argument('--file_path', type=str, help='Path to the file to upload/download.')
-    parser.add_argument('--destination_path', type=str, help='Where to download/upload. ex)/Dropbox/Folder/filt.txt')
+    parser.add_argument('--file', type=str, help='Path to the file to upload/download.')
+    parser.add_argument('--dest', type=str, help='Where to download/upload. ex)/Folder/filt.txt')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -52,8 +52,8 @@ if __name__ == '__main__':
     # Access the values of the arguments
     access_token = 'sl.BiZJkb2Cxg-ZqXX3QJ964GxBhlJY394pGC9KPR1IGHNp_aATMBF4bAv_PiIX8tf6E1QQIdVM2_8kO1iZJ0oDENFrZNZIYxHZcujzJkfz6v0B8iYbP32DcMGzWoozxWV5fJoD0cw'
     should_download = args.download
-    file_path = args.file_path
-    destination_path = args.destination_path
+    file_path = args.file
+    destination_path = args.dest
     if (should_download):
         download_file(access_token, file_path, destination_path)
     else:
