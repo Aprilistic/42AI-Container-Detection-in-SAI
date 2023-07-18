@@ -50,7 +50,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Access the values of the arguments
-    access_token = 'sl.BibA18uPA7FbmKS1eWz_NjjoBq1jBteOQYHUUKDDZgrzX2Nt0yZS7VD6Cl9ThfFBeUdSHVIKLhjqGwzeLFSIrubbV2iWj-MFknD3hcmLqmgL6_QuJNJW7EpTwmgyhQCiUJeGTy1h'
+    access_token = 'sl.BiZJkb2Cxg-ZqXX3QJ964GxBhlJY394pGC9KPR1IGHNp_aATMBF4bAv_PiIX8tf6E1QQIdVM2_8kO1iZJ0oDENFrZNZIYxHZcujzJkfz6v0B8iYbP32DcMGzWoozxWV5fJoD0cw'
     should_download = args.download
     file_path = args.file_path
     destination_path = args.destination_path
