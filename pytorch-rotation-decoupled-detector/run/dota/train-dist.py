@@ -38,8 +38,8 @@ def main(batch_size, rank, world_size):
 
     backbone = resnet.resnet101
 
-    dir_dataset = '<replace with your local path>'
-    dir_save = '<replace with your local path>'
+    dir_dataset = '/root/pytorch-rotation-decoupled-detector'
+    dir_save = '/root/pytorch-rotation-decoupled-detector/save'
 
     dir_weight = os.path.join(dir_save, 'weight')
     dir_log = os.path.join(dir_save, 'log')
