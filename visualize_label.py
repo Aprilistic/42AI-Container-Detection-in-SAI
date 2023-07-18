@@ -35,7 +35,7 @@ def visualize_labels(image_path, label_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Draws bounding boxes and labels of objects in an image.')
     # Add arguments
-    parser.add_argument('--image', type=int, help='Path to an image.')
+    parser.add_argument('--image', type=str, help='Path to an image.')
     parser.add_argument('--label', type=str, help='Path to the corresponding label.')
 
     # Parse the arguments
