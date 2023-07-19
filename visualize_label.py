@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
     # Read and display the image with bounding boxes
     for label in labels:
-        image_name = os.path.join(image_directory_path, label[0])
+        image_name = os.path.join(image_directory_path, label[0] + '.png')
         image = cv2.imread(image_name)
         draw_boxes(image, [label])
         cv2.imwrite(os.path.join(dest, image_name + '_with_labels.jpg'), image)
