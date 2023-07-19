@@ -26,6 +26,7 @@ if __name__ == '__main__':
     # Add arguments
     parser.add_argument('--image', type=str, help='Path to an image directory')
     parser.add_argument('--label', type=str, help='Path to a label file')
+    parser.add_argument('--dest', type=str, help='Path to save visualization results')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -33,6 +34,7 @@ if __name__ == '__main__':
     # Access the values of the arguments
     image_directory_path = args.image
     label_path = args.label
+    dest = args.dest
     with open(label_path, 'r') as file:
         lines = file.readlines()
     labels = [line.strip().split(' ') for line in lines]
@@ -42,5 +44,5 @@ if __name__ == '__main__':
         image_name = image_directory_path + label[0]
         image = cv2.imread(image_name)
         draw_boxes(image, [label])
-        output_path = image_name + '_with_labels.jpg'  # Example: "image.jpg" -> "image_with_labels.jpg"
+        output_path = dest + image_name + '_with_labels.jpg'
         cv2.imwrite(output_path, image)
