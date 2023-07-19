@@ -41,8 +41,22 @@ if __name__ == '__main__':
 
     # Read and display the image with bounding boxes
     for label in labels:
-        image_name = image_directory_path + label[0]
-        image = cv2.imread(image_name)
+        image_name = label[0]
+        # Determine the absolute image path
+        if os.path.isabs(image_directory_path):
+            absolute_image_path = os.path.join(image_directory_path, image_name)
+        else:
+            current_dir = os.getcwd()
+            absolute_image_path = os.path.join(current_dir, image_directory_path, image_name)
+
+        image = cv2.imread(absolute_image_path)
         draw_boxes(image, [label])
-        output_path = dest + image_name + '_with_labels.jpg'
-        cv2.imwrite(output_path, image)
+
+        # Determine the absolute output path
+        if os.path.isabs(dest):
+            absolute_output_path = os.path.join(dest, image_name + '_with_labels.jpg')
+        else:
+            current_dir = os.getcwd()
+            absolute_output_path = os.path.join(current_dir, dest, image_name + '_with_labels.jpg')
+
+        cv2.imwrite(absolute_output_path, image)
