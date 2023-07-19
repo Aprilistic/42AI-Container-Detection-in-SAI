@@ -48,7 +48,7 @@ def main():
     max_step = 250000
     lr_cfg = [[100000, lr], [200000, lr / 10], [max_step, lr / 50]]
     warm_up = [1000, lr / 50, lr]
-    save_interval = 1500
+    save_interval = 2000
 
     aug = Compose([
         ops.ToFloat(),
@@ -115,9 +115,6 @@ def main():
                 save_path = os.path.join(dir_weight, '%d.pth' % current_step)
                 state_dict = model.state_dict() if len(device_ids) == 1 else model.module.state_dict()
                 torch.save(state_dict, save_path)
-                cache_file = os.path.join(dir_weight, '%d.pth' % (current_step - save_interval))
-                if os.path.exists(cache_file):
-                    os.remove(cache_file)
 
             if current_step >= max_step:
                 training = False
