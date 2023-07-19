@@ -1,31 +1,30 @@
 import cv2
-import numpy as np
 import argparse
 
-def visualize_labels(image_path, label_path):
-    # Load the image
-    image = cv2.imread(image_path)
+def draw_boxes(image, boxes):
+    for box in boxes:
+        label = box[0]
+        confidence = float(box[1])
+        coordinates = list(map(float, box[2:]))
+        
+        # Extract x and y coordinates from the clockwise order
+        x_coordinates = coordinates[0::2]
+        y_coordinates = coordinates[1::2]
+        
+        # Reshape the coordinates into pairs
+        points = [(int(x), int(y)) for x, y in zip(x_coordinates, y_coordinates)]
+        
+        # Draw the bounding box polygon on the image
+        cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=2)
+        
+        # Add label and confidence text above the bounding box
+        text = f'{label}: {confidence:.2f}'
+        cv2.putText(image, text, (points[0][0], points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
-    # Read the label file
-    with open(label_path, 'r') as file:
-        lines = file.readlines()
-
-    # Iterate over the lines and extract label information
-    for line in lines:
-        line = line.strip().split()
-        coordinates = list(map(int, line[:8]))
-        label = line[8]
-        difficulty = int(line[9])
-
-        # Draw the bounding box
-        pts = [(coordinates[i], coordinates[i+1]) for i in range(0, 8, 2)]
-        pts = np.array(pts, np.int32).reshape((-1, 1, 2))
-        cv2.polylines(image, [pts], True, (0, 255, 0), 2)
-
-        # Add label text
-        label_text = f"{label} ({difficulty})"
-        x, y = coordinates[:2]
-        cv2.putText(image, label_text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+    # Display the image with bounding boxes
+    cv2.imshow('Image with Labels', image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
     # Display the image with labels
     cv2.imshow("Image with Labels", image)
@@ -35,14 +34,21 @@ def visualize_labels(image_path, label_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Draws bounding boxes and labels of objects in an image.')
     # Add arguments
-    parser.add_argument('--image', type=str, help='Path to an image.')
-    parser.add_argument('--label', type=str, help='Path to the corresponding label.')
+    parser.add_argument('--image', type=str, help='Path to an image directory')
+    parser.add_argument('--label', type=str, help='Path to a label file')
 
     # Parse the arguments
     args = parser.parse_args()
 
     # Access the values of the arguments
-    image_path = args.image
+    image_directory_path = args.image
     label_path = args.label
+    with open(label_path, 'r') as file:
+        lines = file.readlines()
+    labels = [line.strip().split(' ') for line in lines]
 
-    visualize_labels(image_path, label_path)
+    # Read and display the image with bounding boxes
+    for label in labels:
+        image_name = image_directory_path + label[0]
+        image = cv2.imread(image_name)
+        draw_boxes(image, [label])
