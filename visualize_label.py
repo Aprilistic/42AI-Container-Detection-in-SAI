@@ -21,16 +21,6 @@ def draw_boxes(image, boxes):
         text = f'{label}: {confidence:.2f}'
         cv2.putText(image, text, (points[0][0], points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
-    # Display the image with bounding boxes
-    cv2.imshow('Image with Labels', image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-    # Display the image with labels
-    cv2.imshow("Image with Labels", image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Draws bounding boxes and labels of objects in an image.')
     # Add arguments
@@ -52,3 +42,5 @@ if __name__ == '__main__':
         image_name = image_directory_path + label[0]
         image = cv2.imread(image_name)
         draw_boxes(image, [label])
+        output_path = image_name + '_with_labels.jpg'  # Example: "image.jpg" -> "image_with_labels.jpg"
+        cv2.imwrite(output_path, image)
