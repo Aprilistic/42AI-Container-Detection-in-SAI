@@ -127,7 +127,7 @@ if __name__ == '__main__':
     torch.manual_seed(0)
     torch.backends.cudnn.benchmark = True
 
-    device_ids = [0, 1]
+    device_ids = [0]
     torch.cuda.set_device(device_ids[0])
     backbone = resnet.resnet101
 
