@@ -16,7 +16,6 @@ def draw_boxes(image, boxes):
         # Reshape the coordinates into pairs
         points = [(int(x), int(y)) for x, y in zip(x_coordinates, y_coordinates)]
         points = np.array(points)  # Convert points to a NumPy array
-        print(points)
         # Draw the bounding box polygon on the image
         cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=2)
         
@@ -29,7 +28,6 @@ if __name__ == '__main__':
     # Add arguments
     parser.add_argument('--image', type=str, help='Path to an image directory')
     parser.add_argument('--label', type=str, help='Path to a label file')
-    parser.add_argument('--dest', type=str, help='Path to save visualization results')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -37,7 +35,6 @@ if __name__ == '__main__':
     # Access the values of the arguments
     image_directory_path = args.image
     label_path = args.label
-    dest = args.dest
     with open(label_path, 'r') as file:
         lines = file.readlines()
     labels = [line.strip().split(' ') for line in lines]
