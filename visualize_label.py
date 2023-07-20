@@ -20,7 +20,7 @@ def draw_boxes(image, boxes):
         cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=2)
         
         # Add label and confidence text above the bounding box
-        text = f'{label}: {confidence:.2f}'
+        text = f'{confidence:.2f}'
         cv2.putText(image, text, (points[0][0], points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
 if __name__ == '__main__':
@@ -42,6 +42,9 @@ if __name__ == '__main__':
     # Read and display the image with bounding boxes
     for label in labels:
         image_name = os.path.join(image_directory_path, label[0] + '.png')
+        new_name = image_name + '_with_labels.jpg'
+        if os.path.exists(image_name + '_with_labels.jpg'):
+            image_name += '_with_labels.jpg'
         image = cv2.imread(image_name)
         draw_boxes(image, [label])
-        cv2.imwrite(os.path.join(dest, image_name + '_with_labels.jpg'), image)
+        cv2.imwrite(new_name, image)
