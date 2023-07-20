@@ -19,6 +19,7 @@ def download_file(access_token, file_path, destination_path):
     else:
         print("Failed to download file.")
         print(response.status_code)
+        print(response.text)
 
 def upload_file(access_token, file_path, destination_path):
     url = "https://content.dropboxapi.com/2/files/upload"
@@ -37,6 +38,7 @@ def upload_file(access_token, file_path, destination_path):
     else:
         print("Failed to upload file.")
         print(response.status_code)
+        print(response.text)
 
 if __name__ == '__main__':
 
