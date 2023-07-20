@@ -16,7 +16,6 @@ def draw_boxes(image, boxes):
         # Reshape the coordinates into pairs
         points = [(int(x), int(y)) for x, y in zip(x_coordinates, y_coordinates)]
         points = np.array(points)  # Convert points to a NumPy array
-        print(points)
         # Draw the bounding box polygon on the image
         cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=2)
         
@@ -47,4 +46,4 @@ if __name__ == '__main__':
         image_name = os.path.join(image_directory_path, label[0] + '.png')
         image = cv2.imread(image_name)
         draw_boxes(image, [label])
-        cv2.imwrite(os.path.join(dest, image_name + '_with_labels.jpg'), image)
+    cv2.imwrite(image_name + '_with_labels.bmp', image)
