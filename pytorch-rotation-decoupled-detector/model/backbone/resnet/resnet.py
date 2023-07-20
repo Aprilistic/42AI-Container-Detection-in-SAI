@@ -13,24 +13,7 @@ from .splat import SplAtConv2d
 # all pre-trained on image-net
 
 weights = {
-    # from pytorch
-    'resnet18': os.path.join(DIR_WEIGHT, 'resnet', 'resnet18-5c106cde.pth'),
-    'resnet34': os.path.join(DIR_WEIGHT, 'resnet', 'resnet34-333f7ec4.pth'),
-    'resnet50': os.path.join(DIR_WEIGHT, 'resnet', 'resnet50-19c8e357.pth'),
-    'resnet101': os.path.join(DIR_WEIGHT, 'resnet', 'resnet101-5d3b4d8f.pth'),
-    'resnet152': os.path.join(DIR_WEIGHT, 'resnet', 'resnet152-b121ed2d.pth'),
-    'resnext50': os.path.join(DIR_WEIGHT, 'resnet', 'resnext50_32x4d-7cdf4587.pth'),
-    'resnext101': os.path.join(DIR_WEIGHT, 'resnet', 'resnext101_32x8d-8ba56ff5.pth'),
 
-    # from https://github.com/zhanghang1989/ResNeSt
-    'resnest50': os.path.join(DIR_WEIGHT, 'resnet', 'resnest50-528c19ca.pth'),
-    'resnest101': os.path.join(DIR_WEIGHT, 'resnet', 'resnest101-22405ba7.pth'),
-    'resnest200': os.path.join(DIR_WEIGHT, 'resnet', 'resnest200-75117900.pth'),
-    'resnest269': os.path.join(DIR_WEIGHT, 'resnet', 'resnest269-0cc87c48.pth'),
-
-    'resnet50-d': os.path.join(DIR_WEIGHT, 'resnet', 'resnet50_v1d.pth'),
-    'resnet101-d': os.path.join(DIR_WEIGHT, 'resnet', 'resnet101_v1d.pth'),
-    'resnet152-d': os.path.join(DIR_WEIGHT, 'resnet', 'resnet152_v1d.pth'),
 }
 
 
