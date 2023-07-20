@@ -20,7 +20,7 @@ def draw_boxes(image, boxes):
         cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=2)
         
         # Add label and confidence text above the bounding box
-        text = f'{label}: {confidence:.2f}'
+        text = f'{confidence:.2f}'
         cv2.putText(image, text, (points[0][0], points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
 if __name__ == '__main__':
