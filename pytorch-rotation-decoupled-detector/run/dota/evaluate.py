@@ -57,7 +57,7 @@ def main():
         'scales': [[2 ** 0, 2 ** (1 / 3), 2 ** (2 / 3)]] * 5,
         'old_version': old_version
     }
-    conf_thresh = 0.01
+    conf_thresh = 0.1
     nms_thresh = 0.45
     cfg = {
         'prior_box': prior_box,
