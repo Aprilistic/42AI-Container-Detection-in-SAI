@@ -15,6 +15,8 @@ sys.path.append('.')
 import os
 import tqdm
 import torch
+import numpy as np
+import random
 
 from torch import optim
 from torch.utils.data import DataLoader
@@ -30,6 +32,16 @@ from model.backbone import resnet
 from utils.adjust_lr import adjust_lr_multi_step
 from utils.parallel import convert_model, CustomDetDataParallel
 
+
+def my_seed_everywhere(seed: int = 42):
+    random.seed(seed) # random
+    np.random.seed(seed) # numpy
+    os.environ["PYTHONHASHSEED"] = str(seed) # os
+    # pytorch
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed) 
+    torch.backends.cudnn.deterministic = True 
+    torch.backends.cudnn.benchmark = False 
 
 def main():
     dir_weight = os.path.join(dir_save, 'weight')
@@ -124,8 +136,8 @@ def main():
 
 if __name__ == '__main__':
 
-    torch.manual_seed(0)
-    torch.backends.cudnn.benchmark = True
+    my_seed = 42
+    my_seed_everywhere(my_seed)
 
     device_ids = [0]
     torch.cuda.set_device(device_ids[0])
