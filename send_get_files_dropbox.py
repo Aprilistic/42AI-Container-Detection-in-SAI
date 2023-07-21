@@ -19,6 +19,7 @@ def download_file(access_token, file_path, destination_path):
     else:
         print("Failed to download file.")
         print(response.status_code)
+        print(response.text)
 
 def upload_file(access_token, file_path, destination_path):
     url = "https://content.dropboxapi.com/2/files/upload"
@@ -37,6 +38,7 @@ def upload_file(access_token, file_path, destination_path):
     else:
         print("Failed to upload file.")
         print(response.status_code)
+        print(response.text)
 
 if __name__ == '__main__':
 
@@ -50,7 +52,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Access the values of the arguments
-    access_token = 'sl.BihG8Qfz3i00sjjutb8MldJFskGIeEfwsOjMmHCE0DjvaBNLKk7YN3WNOmqlZLoe-WZPXZ2ILUhWTwC2_84L4l3vtfzKsf91jHaSC17go6MIL1a9CEh8dmbbcKlM6XnPlrP82DnvAZNg'
+    access_token = 'sl.BinS8rIAhOCMqDsUGi9-wKw8h9r5gdLPo9d3tAeHgq7kZy1GaxIPchSIglRdGOogmR5qgAjFrcjQJ_EJogpVVhU2mgPTZ-tSG6R7ZsOtkJzhHlg0ChNdoq9NRQIQAU-V9lKR9q1kXc_B'
     should_download = args.download
     file_path = args.file
     destination_path = args.dest
