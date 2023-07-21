@@ -15,7 +15,7 @@ if __name__ == '__main__':
     target = args.target
     type = args.type
 
-    with open(target) as infile:
+    with open(target + type) as infile:
 
         # Read space-delimited file and replace all empty spaces by commas
         if type == '.txt':
