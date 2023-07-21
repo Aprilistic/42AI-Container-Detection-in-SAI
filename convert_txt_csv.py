@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Uploads/downloads a file to/from Dropbox.')
     # Add arguments
-    parser.add_argument('--target', type=str, help='The target file that you want to convert.')
+    parser.add_argument('--target', type=str, help='The target file that you want to convert. ex) \'/root/example\' if the target is saved as \'/root/example.txt\'')
     parser.add_argument('--type', type=str, help="The type of the target. \'.txt\' if you want to convert txt to csv. \'.csv\' otherwise.")
 
     # Parse the arguments
