@@ -60,7 +60,7 @@ def main():
     max_step = 250000
     lr_cfg = [[100000, lr], [200000, lr / 10], [max_step, lr / 50]]
     warm_up = [1000, lr / 50, lr]
-    save_interval = 2000
+    save_interval = 10000
 
     aug = Compose([
         ops.ToFloat(),
