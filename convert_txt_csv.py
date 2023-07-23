@@ -21,10 +21,11 @@ if __name__ == '__main__':
         if type == '.txt':
             data = "File,Confidence,X1,Y1,X2,Y2,X3,Y3,X4,Y4\n"
             for line in infile:
-                columns = line.strip().split(',')
+                columns = line.strip().split(' ')
                 columns[0] = columns[0][:8]
-                ','.join(columns)
-                data += columns
+                new_line = ','.join(columns)
+                new_line += '\n'
+                data += new_line
             print(data, file=open(target + '.csv', 'w'))
         else:
             data = infile.read().replace(',', ' ')
