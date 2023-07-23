@@ -17,11 +17,11 @@ def draw_boxes(image, boxes):
         points = [(int(x), int(y)) for x, y in zip(x_coordinates, y_coordinates)]
         points = np.array(points)  # Convert points to a NumPy array
         # Draw the bounding box polygon on the image
-        cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=2)
+        cv2.polylines(image, [points], isClosed=True, color=(0, 255, 0), thickness=0.5)
         
         # Add label and confidence text above the bounding box
-        text = f'{confidence:.2f}'
-        cv2.putText(image, text, (points[0][0], points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+        # text = f'{confidence:.2f}'
+        # cv2.putText(image, text, (points[0][0], points[0][1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Draws bounding boxes and labels of objects in an image.')
