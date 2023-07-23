@@ -19,7 +19,12 @@ if __name__ == '__main__':
 
         # Read space-delimited file and replace all empty spaces by commas
         if type == '.txt':
-            data = infile.read().replace(' ', ',')
+            data = "File,Confidence,X1,Y1,X2,Y2,X3,Y3,X4,Y4\n"
+            for line in infile:
+                columns = line.strip().split(',')
+                columns[0] = columns[0][:8]
+                ','.join(columns)
+                data += columns
             print(data, file=open(target + '.csv', 'w'))
         else:
             data = infile.read().replace(',', ' ')
