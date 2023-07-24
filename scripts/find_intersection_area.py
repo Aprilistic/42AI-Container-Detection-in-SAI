@@ -59,9 +59,27 @@ def find_intersection_area(rect1, rect2):
         y = m1 * x + b1
 
         return x, y
+    
+    def is_on_segment(p1, p2, intersect_p):
+        # p1, p2는 선분을 나타낸다.
+        x1, y1 = p1
+        x2, y2 = p2
+        inter_x, inter_y = intersect_p
+        if x1 > x2:
+            x1, x2 = x2, x1
+        if y1 > y2:
+            y1, y2 = y2, y1
+        if inter_x < x1 or x2 < inter_x or inter_y < y1 or y2 < inter_y:
+            return False
+        return True
 
     def get_intersection_points(rect1, rect2):
-        
+        for i in range(4):
+            p1, p2 = rect1[i], rect1[(i + 1) % 4]
+            for j in range(4):
+                q1, q2 = rect2[j], rect2[(j + 1) % 4]
+                l1, l2 = get_line(p1, p2), get_line(q1, q2)
+                
 
     intersection_points = get_intersection_points(rect1, rect2)
 
