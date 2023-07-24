@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import math
 
 def find_intersection_area(rect1, rect2):
@@ -8,25 +9,26 @@ def find_intersection_area(rect1, rect2):
             j = (i + 1) % n
             area += (vertices[i][0] * vertices[j][1]) - (vertices[j][0] * vertices[i][1])
         return abs(area) / 2.0
+    
+    def get_line(p1, p2):
+        # 선분을 지나는 선을 구하는 함수
+        x1, y1 = p1
+        x2, y2 = p2
+        # Calculate the slope (m) of the line
+        if x2 - x1 != 0:
+            slope = (y2 - y1) / (x2 - x1)
+        else:
+            # Handle the case when the line is vertical (infinite slope)
+            return x1 # x 값 하나만 있어도 선을 구분할 수 있기에, x 값 하나만 반환한다.
+
+        # Calculate the y-intercept (b) of the line
+        intercept = y1 - slope * x1
+
+        # Construct the equation of the line in string format
+        return (slope, intercept)
 
     def get_intersection_points(rect1, rect2):
-        # Check for intersection between edges of the rectangles
-        def intersect(a, b, c, d):
-            def ccw(A, B, C):
-                return (C[1] - A[1]) * (B[0] - A[0]) > (B[1] - A[1]) * (C[0] - A[0])
-
-            return ccw(a, c, d) != ccw(b, c, d) and ccw(a, b, c) != ccw(a, b, d)
-
-        intersection_points = []
-
-        for i in range(4):
-            p1, p2 = rect1[i], rect1[(i + 1) % 4]
-            for j in range(4):
-                q1, q2 = rect2[j], rect2[(j + 1) % 4]
-                if intersect(p1, p2, q1, q2):
-                    intersection_points.append((p1, p2, q1, q2))
-
-        return intersection_points
+        
 
     intersection_points = get_intersection_points(rect1, rect2)
 
@@ -54,6 +56,8 @@ def find_intersection_area(rect1, rect2):
     return total_area
 
 if __name__ == "__main__":
+    # 테스트 코드
     rectangle1 = [(0, 0), (3, 0), (3, 3), (0, 3)]
     rectangle2 = [(1, 1), (4, 1), (4, 4), (1, 4)]
-    find_intersection_area(rectangle1, rectangle2)
+    area = find_intersection_area(rectangle1, rectangle2)
+    print(area)
