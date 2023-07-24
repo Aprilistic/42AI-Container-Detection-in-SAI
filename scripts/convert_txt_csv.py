@@ -17,7 +17,6 @@ if __name__ == '__main__':
 
     with open(target + type) as infile:
 
-        # Read space-delimited file and replace all empty spaces by commas
         if type == '.txt':
             data = "File,Confidence,X1,Y1,X2,Y2,X3,Y3,X4,Y4\n"
             for line in infile:
@@ -30,4 +29,3 @@ if __name__ == '__main__':
         else:
             data = infile.read().replace(',', ' ')
             print(data, file=open(target + '.txt', 'w'))
-        # Write the CSV data in the output file
