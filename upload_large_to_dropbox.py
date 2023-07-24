@@ -27,7 +27,7 @@ def upload_large_file(file_path, dest, access_token):
             chunk = file.read(chunk_size)
             if not chunk:
                 # No more data to upload, finish the session
-                dbx.files_upload_session_finish('', cursor, dropbox.files.CommitInfo(path=dest))
+                dbx.files_upload_session_finish(b'', cursor, dropbox.files.CommitInfo(path=dest))
                 break
 
             # Append the chunk to the upload session
