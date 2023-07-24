@@ -10,10 +10,10 @@ def find_intersection_area(rect1, rect2):
             area += (vertices[i][0] * vertices[j][1]) - (vertices[j][0] * vertices[i][1])
         return abs(area) / 2.0
     
-    def get_line(p1, p2):
-        # 선분을 지나는 선을 구하는 함수
-        x1, y1 = p1
-        x2, y2 = p2
+    def get_line(point1, point2):
+        # point1과 point2를 지나는 선을 구하는 함수
+        x1, y1 = point1
+        x2, y2 = point2
         # Calculate the slope (m) of the line
         if x2 - x1 != 0:
             slope = (y2 - y1) / (x2 - x1)
@@ -24,8 +24,41 @@ def find_intersection_area(rect1, rect2):
         # Calculate the y-intercept (b) of the line
         intercept = y1 - slope * x1
 
-        # Construct the equation of the line in string format
         return (slope, intercept)
+
+    def find_intersection_point(line1, line2):
+        # Extract slope (m) and y-intercept (b) of lines
+        m1, b1 = line1
+        m2, b2 = line2
+
+        # Check if both lines are vertical (infinite slopes)
+        if not hasattr(line1, '__len__') and not hasattr(line2, '__len__'):
+            if line1 == line2: # 두 개의 vertical 선이 같은 x 값을 가진다면, 겹친다. line1 혹은 line2를 반환해주면 된다.
+                return line1
+
+        # Check if line1 is vertical (infinite slope)
+        if not hasattr(line1, '__len__'):
+            x = b1
+            y = m2 * x + b2
+            return x, y
+
+        # Check if line2 is vertical (infinite slope)
+        if not hasattr(line2, '__len__'):
+            x = b2
+            y = m1 * x + b1
+            return x, y
+
+        # Check if lines are parallel (no intersection)
+        if m1 == m2:
+            return None
+
+        # Calculate the x-coordinate of the intersection point
+        x = (b2 - b1) / (m1 - m2)
+
+        # Calculate the y-coordinate of the intersection point
+        y = m1 * x + b1
+
+        return x, y
 
     def get_intersection_points(rect1, rect2):
         
